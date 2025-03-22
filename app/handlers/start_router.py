@@ -14,3 +14,6 @@ async def cmd_start(message: Message):
 async def cmd_start_2(message: Message):
     await message.answer('запуск сообщения по команде /start_2 используя фильтр Command()',
                          reply_markup=create_spec_kb())
+@start_router.message(F.text == 'о нас')
+async def print_about_me_message(message: Message):
+    await message.answer(ABOUT_ME)
