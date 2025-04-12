@@ -1,10 +1,11 @@
 import os
+import sqlite3
 
 from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.fsm.storage.memory import MemoryStorage
-from app.db_handler.db_class import create_connect
+from app.db_handler.db_class import create_connection
 
 from dotenv import load_dotenv 
 
@@ -36,7 +37,9 @@ def create_tables():
                    id INTEGER PRIMARY KEY,
                     user_id INTEGER,
                     full_name TEXT,
-                   reg_date TEXT
+                   balance FLOAT,
+                   create_at DATETIME,
+                   update_at DATETIME
                    )
                    ''')
     
